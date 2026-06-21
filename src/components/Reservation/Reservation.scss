@@ -1,0 +1,174 @@
+@use '../../styles/variables' as *;
+
+.reservation {
+  position: relative;
+  padding: 8rem 0;
+  background: $snow;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba($sky, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  &__label {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $deep-blue;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: $charcoal;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: $granite;
+    margin-bottom: 2rem;
+  }
+
+  &__note {
+    padding: 1.5rem;
+    background: rgba($sky, 0.1);
+    border-radius: 4px;
+    border-left: 2px solid $sky;
+
+    p {
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: $deep-blue;
+      line-height: 1.6;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    background: $cloud-white;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba($charcoal, 0.04);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__field-label {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $granite;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    font-family: $font-body;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba($charcoal, 0.12);
+    border-radius: 2px;
+    background: $snow;
+    color: $charcoal;
+    transition: border-color $duration-fast $ease-smooth;
+    outline: none;
+
+    &:focus {
+      border-color: $deep-blue;
+    }
+
+    &::placeholder {
+      color: rgba($granite, 0.5);
+    }
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23777' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  &__submit {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    background: $charcoal;
+    color: $cloud-white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all $duration-normal $ease-smooth;
+    margin-top: 0.5rem;
+
+    &:hover {
+      background: $deep-blue;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba($charcoal, 0.15);
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .reservation {
+    padding: 5rem 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    &__row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    &__form {
+      padding: 1.5rem;
+    }
+  }
+}

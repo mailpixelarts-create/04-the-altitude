@@ -1,0 +1,158 @@
+@use '../../styles/variables' as *;
+
+.alpine-menu {
+  padding: 8rem 0;
+  background: $cloud-white;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__label {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $deep-blue;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: $charcoal;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  &__tab {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba($charcoal, 0.15);
+    border-radius: 2px;
+    color: $granite;
+    transition: all $duration-normal $ease-smooth;
+
+    &:hover {
+      border-color: $charcoal;
+      color: $charcoal;
+    }
+
+    &--active {
+      background: $charcoal;
+      border-color: $charcoal;
+      color: $cloud-white;
+    }
+  }
+
+  &__content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__season-title {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $deep-blue;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba($charcoal, 0.05);
+    transition: background $duration-fast $ease-smooth;
+
+    &:hover {
+      background: rgba($sky, 0.05);
+    }
+  }
+
+  &__item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  &__item-name {
+    font-family: $font-display;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: $charcoal;
+  }
+
+  &__item-price {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $granite;
+    letter-spacing: 0.05em;
+  }
+
+  &__item-desc {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: $granite;
+  }
+
+  &__item-line {
+    width: 0;
+    height: 1px;
+    background: $deep-blue;
+    margin-top: 1.5rem;
+    transition: width $duration-slow $ease-out-expo;
+  }
+
+  &__item:hover &__item-line {
+    width: 100%;
+  }
+
+  &__note {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($charcoal, 0.05);
+
+    p {
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: $granite;
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .alpine-menu {
+    padding: 5rem 0;
+
+    &__tabs {
+      gap: 0.5rem;
+    }
+
+    &__tab {
+      font-size: 0.6rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
