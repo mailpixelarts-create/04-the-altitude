@@ -1,0 +1,117 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
+
+  &.lenis {
+    height: auto;
+  }
+}
+
+body {
+  font-family: $font-body;
+  background-color: $snow;
+  color: $charcoal;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.app {
+  opacity: 0;
+  transition: opacity 0.6s $ease-smooth;
+
+  &--visible {
+    opacity: 1;
+  }
+
+  &--hidden {
+    opacity: 0;
+  }
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+::selection {
+  background: $sky;
+  color: $deep-blue;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $snow;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $granite;
+  border-radius: 3px;
+
+  &:hover {
+    background: $deep-blue;
+  }
+}

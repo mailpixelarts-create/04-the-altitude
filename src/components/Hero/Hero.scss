@@ -1,0 +1,202 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #c8dff0 0%, $sky 30%, #e8f4f8 70%, $snow 100%);
+  }
+
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba($snow, 0.3) 100%);
+    z-index: 2;
+  }
+
+  &__clouds {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__cloud {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.3) 60%, transparent 100%);
+    filter: blur(2px);
+
+    &--1 { width: 400px; height: 100px; top: 25%; left: -5%; }
+    &--2 { width: 350px; height: 80px; top: 35%; right: -8%; }
+    &--3 { width: 300px; height: 70px; top: 55%; left: 20%; }
+    &--4 { width: 250px; height: 60px; top: 65%; right: 15%; }
+  }
+
+  &__sun {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 249, 230, 1) 0%, rgba(255, 215, 0, 0.6) 40%, rgba(255, 165, 0, 0.2) 70%, transparent 100%);
+    box-shadow: 0 0 80px rgba(255, 215, 0, 0.3), 0 0 160px rgba(255, 215, 0, 0.1);
+    z-index: 1;
+  }
+
+  &__mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+  }
+
+  &__mountain-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 $gutter;
+  }
+
+  &__badge {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid rgba($charcoal, 0.2);
+    border-radius: 2px;
+
+    span {
+      font-family: $font-mono;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: $charcoal;
+    }
+  }
+
+  &__headline {
+    font-family: $font-display;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 300;
+    line-height: 0.95;
+    color: $charcoal;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  &__sub {
+    font-family: $font-body;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: $granite;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  &__cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 2px;
+    transition: all $duration-normal $ease-smooth;
+
+    &--primary {
+      background: $charcoal;
+      color: $cloud-white;
+
+      &:hover {
+        background: $deep-blue;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba($charcoal, 0.2);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: $charcoal;
+      border: 1px solid rgba($charcoal, 0.3);
+
+      &:hover {
+        border-color: $charcoal;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__scroll-text {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $granite;
+  }
+
+  &__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, $granite, transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.5; transform: scaleY(0.6); }
+}
+
+@media (max-width: $bp-tablet) {
+  .hero {
+    &__cloud {
+      &--1 { width: 250px; }
+      &--2 { width: 200px; }
+      &--3 { width: 180px; }
+      &--4 { display: none; }
+    }
+
+    &__sun {
+      width: 80px;
+      height: 80px;
+    }
+
+    &__scroll {
+      display: none;
+    }
+  }
+}

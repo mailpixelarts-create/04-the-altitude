@@ -1,0 +1,73 @@
+@use '../../styles/variables' as *;
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: $charcoal;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: $z-cursor;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+
+  &__follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba($charcoal, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: $z-cursor - 1;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+  }
+
+  &__ripple {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba($sky, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: $z-cursor - 2;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+.wind-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba($sky, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: $z-cursor - 3;
+  transform: translate(-50%, -50%);
+}
+
+@media (hover: none) {
+  .cursor,
+  .cursor__follower,
+  .cursor__ripple,
+  .wind-ripple {
+    display: none !important;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .cursor,
+  .cursor__follower,
+  .cursor__ripple,
+  .wind-ripple {
+    display: none !important;
+  }
+}

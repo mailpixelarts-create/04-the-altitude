@@ -1,0 +1,145 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background: $charcoal;
+  padding: 5rem 0 2rem;
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba($cloud-white, 0.08);
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__logo-icon {
+    width: 32px;
+    height: 32px;
+    color: $cloud-white;
+  }
+
+  &__logo-text {
+    font-family: $font-display;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $cloud-white;
+  }
+
+  &__tagline {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba($cloud-white, 0.4);
+    text-transform: uppercase;
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__col-title {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba($cloud-white, 0.4);
+    margin-bottom: 0.5rem;
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    color: rgba($cloud-white, 0.6);
+    transition: color $duration-fast $ease-smooth;
+
+    &:hover {
+      color: $cloud-white;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  &__credit {
+    p {
+      font-family: $font-mono;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba($cloud-white, 0.3);
+      line-height: 1.8;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__legal-link {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: rgba($cloud-white, 0.3);
+    transition: color $duration-fast $ease-smooth;
+
+    &:hover {
+      color: rgba($cloud-white, 0.6);
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+
+    &__top {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding-bottom: 2rem;
+    }
+
+    &__links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__bottom {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .footer {
+    &__links {
+      grid-template-columns: 1fr;
+    }
+  }
+}

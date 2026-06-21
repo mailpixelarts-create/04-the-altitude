@@ -1,0 +1,48 @@
+// THE ALTITUDE — Design Tokens
+
+// Colors
+$snow: #F9F9F7;
+$granite: #777777;
+$sky: #AFCDEB;
+$deep-blue: #28435E;
+$wood: #7D5F49;
+$cloud-white: #FFFFFF;
+$charcoal: #1D1D1D;
+
+// Typography
+$font-display: 'Canela', Georgia, serif;
+$font-body: 'Suisse International', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono: 'IBM Plex Mono', monospace;
+
+// Spacing
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 4rem;
+$space-2xl: 8rem;
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1440px;
+
+// Transitions
+$ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+$duration-fast: 0.2s;
+$duration-normal: 0.4s;
+$duration-slow: 0.8s;
+$duration-glacial: 1.6s;
+
+// Z-index
+$z-cursor: 9999;
+$z-nav: 1000;
+$z-loader: 2000;
+$z-overlay: 500;
+
+// Layout
+$max-width: 1440px;
+$gutter: clamp(1.5rem, 4vw, 4rem);
